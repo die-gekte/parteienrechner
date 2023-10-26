@@ -337,7 +337,7 @@ const Layout: React.FC = () => {
               />
               <FormControlLabel
                 control={<Checkbox />}
-                label="Arbeitslos?"
+                label="Arbeitslos (ALGII)?"
                 name={"isUnemployed"}
                 onChange={handleCheckBoxChange}
                 css={{
