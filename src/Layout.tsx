@@ -28,6 +28,7 @@ import SPD from "./parties/SPD.ts";
 import CDU from "./parties/CDU.ts";
 import FDP from "./parties/FDP.ts";
 import AfD from "./parties/AfD.ts";
+import SSW from "./parties/SSW.ts";
 import DieLinke from "./parties/DieLinke.ts";
 import DieGruenen from "./parties/DieGruenen.ts";
 import DiePartei from "./parties/DiePartei.ts";
@@ -37,6 +38,7 @@ import SPDLogo from "./assets/SPD.png";
 import FDPLogo from "./assets/FDP.png";
 import CDULogo from "./assets/CDU.png";
 import AfDLogo from "./assets/AfD.png";
+import SSWLogo from "./assets/SSW.png";
 import PiratenLogo from "./assets/Piratenpartei.png";
 import DieGruenenLogo from "./assets/DieGruenen.png";
 import DieParteiLogo from "./assets/DiePartei.png";
@@ -405,6 +407,7 @@ const Layout: React.FC = () => {
           title={"Piratenpartei"}
           form={values}
         />
+        <Party src={SSWLogo} calculator={SSW} title={"SSW"} form={values} />
       </Stack>
       <Box
         sx={{
@@ -560,6 +563,7 @@ const Layout: React.FC = () => {
           müssen. Serverstandort ist USA. Weitere Informationen zu Widerspruchs-
           und Beseitigungsmöglichkeiten gegenüber GitHub finden Sie unter:
           <Link
+            rel="noreferrer"
             href={
               "https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-privacy-statement#github-pages"
             }
@@ -581,6 +585,7 @@ const Layout: React.FC = () => {
           auf den EU-Standardvertragsklauseln (SCCs). Weitere Informationen
           finden Sie unter:
           <Link
+            rel="noreferrer"
             href={
               "https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-data-protection-addendum#attachment-1–the-standard-contractual-clauses-processors"
             }
