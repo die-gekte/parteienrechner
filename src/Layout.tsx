@@ -44,6 +44,7 @@ import { ColorModeContext } from "./App.tsx";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import RedditIcon from "@mui/icons-material/Reddit";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import SourceIcon from "@mui/icons-material/Source";
 
 const lineItemStyle = css({
@@ -483,6 +484,25 @@ const Layout: React.FC = () => {
             }}
           />{" "}
           /r/gekte auf Reddit
+        </Link>
+        <Link
+          href={"mailto:gekte@airmail.cc"}
+          title={"Kontakt per E-Mail"}
+          css={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          rel="noreferrer"
+          color="inherit"
+          underline={"hover"}
+        >
+          <MailOutlineIcon
+            css={{
+              marginRight: "0.5rem",
+            }}
+          />{" "}
+          Kontakt
         </Link>
       </Box>
       <Paper
