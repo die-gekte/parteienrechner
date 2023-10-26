@@ -9,6 +9,7 @@ import {
   FormControlLabel,
   Grid,
   IconButton,
+  InputAdornment,
   Link,
   List,
   ListItem,
@@ -30,11 +31,13 @@ import AfD from "./parties/AfD.ts";
 import DieLinke from "./parties/DieLinke.ts";
 import DieGruenen from "./parties/DieGruenen.ts";
 import DiePartei from "./parties/DiePartei.ts";
+import Piratenpartei from "./parties/Piratenpartei.ts";
 import DieLinkeLogo from "./assets/DieLinke.png";
 import SPDLogo from "./assets/SPD.png";
 import FDPLogo from "./assets/FDP.png";
 import CDULogo from "./assets/CDU.png";
 import AfDLogo from "./assets/AfD.png";
+import PiratenLogo from "./assets/Piratenpartei.png";
 import DieGruenenLogo from "./assets/DieGruenen.png";
 import DieParteiLogo from "./assets/DiePartei.png";
 import { ColorModeContext } from "./App.tsx";
@@ -239,6 +242,7 @@ const Layout: React.FC = () => {
         <h4
           css={{
             marginLeft: "2rem",
+            marginBottom: "0.5rem",
             "@media (max-width: 768px)": {
               marginTop: "0.25rem",
               marginLeft: "0",
@@ -248,7 +252,15 @@ const Layout: React.FC = () => {
           Der wohl schlechteste Weg sich politisch auszurichten
         </h4>
       </div>
-
+      <p
+        css={{
+          paddingBottom: "1rem",
+        }}
+      >
+        Hier könnt ihr euer <b>monatliches</b> Einkommen eintragen und einen
+        ungefähren Betrag bekommen, den euch die jeweilige Parteimitgliedschaft
+        kosten würden.
+      </p>
       <div
         css={{
           marginBottom: "1rem",
@@ -267,7 +279,7 @@ const Layout: React.FC = () => {
             <Grid item>
               <TextField
                 name={"brutto"}
-                label={"Bruttoeinkommen"}
+                label={"Monatliches Bruttoeinkommen"}
                 inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
                 onChange={handleChange}
                 value={values.brutto}
@@ -275,14 +287,22 @@ const Layout: React.FC = () => {
                   display: "flex",
                   marginBottom: "1rem",
                 }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">€</InputAdornment>
+                  ),
+                }}
               />
             </Grid>
             <TextField
               name={"netto"}
-              label={"Nettoeinkommen"}
+              label={"Monatliches Nettoeinkommen"}
               inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
               onChange={handleChange}
               value={values.netto}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">€</InputAdornment>,
+              }}
               css={{
                 display: "flex",
                 marginBottom: "1rem",
@@ -328,20 +348,27 @@ const Layout: React.FC = () => {
           </Grid>
         </Box>
       </div>
-      <Box
+      <Stack
         css={{
           marginBottom: "3rem",
         }}
+        spacing={1}
       >
         <Alert severity={"error"}>
           Die BetreiberInnen dieser Seite übernehemn keinerlei
           Verantwortung/Gewähr für die Richtigkeit und Aktualität dieser Daten.
         </Alert>
         <Alert severity={"error"}>
+          Wer seine favorisierte Partei nach dem Mitgliedsbeitrag auswählt, ist
+          dumm. Diese Seite dient nur dazu einen groben Vergleich zu bekommen.
+          Lasst euch vor einem Beitritt nochmal beraten, um wirklich sicher zu
+          sein, wie viel ein Beitritt wirklich kostet.
+        </Alert>
+        <Alert severity={"error"}>
           Die angegebenen Werte verlassen deinen Browser nicht. Also außer du
           hast Malware installiert oder so.
         </Alert>
-      </Box>
+      </Stack>
       <Stack spacing={3}>
         <Party
           src={DieLinkeLogo}
@@ -369,6 +396,12 @@ const Layout: React.FC = () => {
           src={DieParteiLogo}
           calculator={DiePartei}
           title={"Die Partei"}
+          form={values}
+        />
+        <Party
+          src={PiratenLogo}
+          calculator={Piratenpartei}
+          title={"Piratenpartei"}
           form={values}
         />
       </Stack>

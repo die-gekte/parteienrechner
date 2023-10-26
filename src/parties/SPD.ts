@@ -103,16 +103,8 @@ function calculateContributionSPD(
   };
 }
 
-function calculateContribution({
-  netto: income,
-  isUnemployed,
-  isRetired,
-}: UserData) {
-  let type: MemberType = "regular";
-
-  if (isRetired || isUnemployed) {
-    type = "unemployed";
-  }
+function calculateContribution({ netto: income }: UserData) {
+  const type: MemberType = "regular";
 
   return calculateContributionSPD(income, type);
 }
